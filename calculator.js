@@ -19,6 +19,9 @@ function divide(num1, num2) {
     else {
         return num1/num2;
     }
+}
 
+function operate(operator, num1, num2) {
+    return(operator(num1, num2));
 }
 //#endregion
