@@ -92,7 +92,6 @@ function attemptToAdd(e) {
     else {
         valuesToOperateOn.push(e.target.innerText);
     }
-
     // Once an element has been added, update the display.
     updateDisplay();
 }
@@ -100,10 +99,8 @@ function attemptToAdd(e) {
 function equals() {
     // Take the displayed string and make it into an array, using spaces to split
     valuesToOperateOn = equationAsString.split(" ");
-    console.table(valuesToOperateOn);
     // Clean up empty values from array
     valuesToOperateOn = valuesToOperateOn.filter(element => !(element === ""));
-    console.table(valuesToOperateOn);
     // If the array is empty, call clear & return
     if (valuesToOperateOn.length === 0) {
         clear();  // Not sure if that is necessary, test later
@@ -112,15 +109,18 @@ function equals() {
     // If there are 2 elements, return the one at index[0]
     if (valuesToOperateOn.length === 2) {   // This is ok because there won't be a need to splice if there is just 1 element
         valuesToOperateOn.pop();
-        console.table(valuesToOperateOn);
     }
     // While there are 3 elements or more, operate on groups of 3 values & modify array
-    while (length >= 3) {
+    while (valuesToOperateOn.length >= 3) {
         const operation = valuesToOperateOn[1];
         const num1 = valuesToOperateOn[0];
         const num2 = valuesToOperateOn[2];
-
-        operate(operation, num1, num2);
+        
+        // Calculate 
+        const newValue = operate(operation, num1, num2);
+        // Adjust the array to use the new calculated value as index 0
+        valuesToOperateOn.splice(0, 3, newValue);
+        console.table(valuesToOperateOn);
     }
     // Update the display to show whatever is left to show
     updateDisplay();
