@@ -29,7 +29,8 @@ function operate(operator, num1, num2) {
 //#region UI display updates
 
 // Global variables
-let informationEntered = [];
+let valuesToOperateOn = [];
+let equationAsString = "";
 
 // Caching refs + adding listeners
 const display = document.querySelector('.results-display');
@@ -45,31 +46,46 @@ operationButtons.forEach(button => {
     button.addEventListener('click', attemptToAdd)
 })
 
+const equalsButton = document.querySelector('.equals');
+equalsButton.addEventListener('click', equals);
+
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', clear);
 
 function attemptToAdd(e) {
     // Checks if the element being evaluated is an operator
     const isOperator = checkIfOperator(e.target) ? true : false;
-    const informationLength = informationEntered.length;
+    const informationLength = valuesToOperateOn.length;
 
     // If trying to add an operator after an operator or nothing, nothing happens
     if (isOperator && 
             (informationLength === 0 || 
-            informationEntered[informationLength-1].startsWith(" "))) {
+            valuesToOperateOn[informationLength-1].startsWith(" "))) {
         return;
     }
     // If the operator would be after something else, add it with spaces around
     else if (isOperator) {
-        informationEntered.push(" " + e.target.innerText + " ")
+        valuesToOperateOn.push(" " + e.target.innerText + " ")
     }
     // Otherwise, if not an operator, add to array.
     else {
-        informationEntered.push(e.target.innerText);
+        valuesToOperateOn.push(e.target.innerText);
     }
 
     // Once an element has been added, update the display.
     updateDisplay();
+}
+
+function equals() {
+    // Take the displayed string and make it into an array, using spaces to split
+
+    // If the array is empty, call clear & return
+
+    // If there are less than 3 elements, return the one at index[0]
+
+    // While there are 3 elements or more, operate on groups of 3 values & modify array
+
+    // Update the display to show whatever is left to show
 }
 
 function checkIfOperator(element) { 
@@ -81,11 +97,13 @@ function checkIfOperator(element) {
 
 function updateDisplay() {
     // Updates display to current state of the array, turned to string
-    display.innerText = informationEntered.join("");
+    equationAsString = valuesToOperateOn.join("");
+    display.innerText = equationAsString;
 }
 
 function clear() {
-    informationEntered = [];
+    valuesToOperateOn = [];
+    equationAsString = "";
     updateDisplay();
 }
 //#endregion
