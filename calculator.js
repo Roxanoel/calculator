@@ -26,7 +26,7 @@ function operate(operator, num1, num2) {
 }
 //#endregion
 
-//#region UI interaction
+//#region UI display updates
 
 // Global variables
 let informationEntered = [];
@@ -44,6 +44,9 @@ const operationButtons = document.querySelectorAll('.operator');
 operationButtons.forEach(button => {
     button.addEventListener('click', attemptToAdd)
 })
+
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clear);
 
 function attemptToAdd(e) {
     // Checks if the element being evaluated is an operator
@@ -79,5 +82,10 @@ function checkIfOperator(element) {
 function updateDisplay() {
     // Updates display to current state of the array, turned to string
     display.innerText = informationEntered.join("");
+}
+
+function clear() {
+    informationEntered = [];
+    updateDisplay();
 }
 //#endregion
