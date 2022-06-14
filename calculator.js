@@ -29,26 +29,55 @@ function operate(operator, num1, num2) {
 //#region UI interaction
 
 // Global variables
-let displayContents = "";
+let informationEntered = [];
 
 // Caching refs + adding listeners
 const display = document.querySelector('.results-display');
 
 const digitButtons = document.querySelectorAll('.digit');
 digitButtons.forEach(button => {
-    button.addEventListener('click', updateDisplay);
+    button.addEventListener('click', attemptToAdd);
     // Store number in var?
 });
 
 const operationButtons = document.querySelectorAll('.operator');
 operationButtons.forEach(button => {
-    button.addEventListener('click', updateDisplay)
+    button.addEventListener('click', attemptToAdd)
 })
 
-function updateDisplay(e) {
-    // Extract contents to display from event info
-    displayContents += (e.target.innerText + " ");
+function attemptToAdd(e) {
+    // Checks if the element being evaluated is an operator
+    const isOperator = checkIfOperator(e.target) ? true : false;
+    const informationLength = informationEntered.length;
 
-    display.innerText = displayContents.toString();
+    // If trying to add an operator after an operator or nothing, nothing happens
+    if (isOperator && 
+            (informationLength === 0 || 
+            informationEntered[informationLength-1].startsWith(" "))) {
+        return;
+    }
+    // If the operator would be after something else, add it with spaces around
+    else if (isOperator) {
+        informationEntered.push(" " + e.target.innerText + " ")
+    }
+    // Otherwise, if not an operator, add to array.
+    else {
+        informationEntered.push(e.target.innerText);
+    }
+
+    // Once an element has been added, update the display.
+    updateDisplay();
+}
+
+function checkIfOperator(element) { 
+    return (element.classList.contains('plus') ||
+        element.classList.contains('minus') ||
+        element.classList.contains('times') ||
+        element.classList.contains('divided'))
+}
+
+function updateDisplay() {
+    // Updates display to current state of the array, turned to string
+    display.innerText = informationEntered.join("");
 }
 //#endregion
