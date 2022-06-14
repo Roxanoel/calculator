@@ -3,7 +3,9 @@
 }
 
 button {
-
+    font-size: 24px;
+    border-radius: 5px;
+    border-style: none;
 }
 body {
     display: flex;
@@ -12,20 +14,32 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 48px;
     margin: 0px;
     text-align: center;
     padding-top: 10%;
+    font-family: fantasy;
+    color: white;
 }
 
 .calc-frame {
     display: flex;
     flex-direction: column;
-    width: 260px;
+    width: 400px;
     gap: 24px;
     background-color: rgb(55, 121, 101);
     border-radius: 5px;
     border: outset 5px;
+}
+
+.equals {
+    background-color: greenyellow;
+    height: 48px;
+}
+
+.clear {
+    background-color: cornsilk;
+    height: 48px;
 }
 
 .results-display {
@@ -47,18 +61,24 @@ h1 {
 
 .buttons-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 24px;
     padding: 24px;
 }
 
 .buttons-left {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(4, 50px);
+    gap: 8px;
 }
 
 .digit {
     background-color: lightsalmon;
+}
+
+.digit :last-child {
+    grid-column: -4 / -1;
 }
 
 .buttons-right {
@@ -71,7 +91,9 @@ h1 {
 
 .operator-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px;
+    gap: 8px;
 }
 
 .operator {
@@ -81,4 +103,5 @@ h1 {
 .clear-and-equals {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
