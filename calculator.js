@@ -78,7 +78,8 @@ function attemptToAdd(e) {
 
 function equals() {
     // Take the displayed string and make it into an array, using spaces to split
-
+    valuesToOperateOn = equationAsString.split(" ");
+    console.table(valuesToOperateOn);
     // If the array is empty, call clear & return
 
     // If there are less than 3 elements, return the one at index[0]
