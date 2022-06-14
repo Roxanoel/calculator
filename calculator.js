@@ -25,3 +25,12 @@ function operate(operator, num1, num2) {
     return(operator(num1, num2));
 }
 //#endregion
+
+//#region UI interaction
+// Cached refs
+const display = document.querySelector('.results-display');
+
+function updateDisplay(contents) {
+    display.innerText = contents.toString();
+}
+//#endregion
