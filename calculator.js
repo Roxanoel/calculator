@@ -129,6 +129,10 @@ function equals() {
     }
     // Update the display to show whatever is left to show
     updateDisplay();
+
+    // To ensure pressing a number will start a new input
+    valuesToOperateOn = [];
+    equationAsString = "";
 }
 
 function checkIfOperator(element) { 
