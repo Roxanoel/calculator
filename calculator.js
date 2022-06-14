@@ -27,10 +27,23 @@ function operate(operator, num1, num2) {
 //#endregion
 
 //#region UI interaction
-// Cached refs
+
+// Caching refs + adding listeners
 const display = document.querySelector('.results-display');
 
-function updateDisplay(contents) {
-    display.innerText = contents.toString();
+// Global variables
+let displayContents = "";
+
+const digitButtons = document.querySelectorAll('.digit');
+digitButtons.forEach(button => {
+    button.addEventListener('click', updateDisplay);
+    // Store number in var?
+});
+
+function updateDisplay(e) {
+    // Extract contents to display from event info
+    displayContents += (e.target.innerText + " ");
+
+    display.innerText = displayContents.toString();
 }
 //#endregion
