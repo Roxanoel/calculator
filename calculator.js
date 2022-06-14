@@ -103,7 +103,6 @@ function equals() {
     valuesToOperateOn = valuesToOperateOn.filter(element => !(element === ""));
     // If the array is empty, call clear & return
     if (valuesToOperateOn.length === 0) {
-        clear();  // Not sure if that is necessary, test later
         return;
     }
     // If there are 2 elements, return the one at index[0]
