@@ -1,6 +1,6 @@
 //#region Basic operator functions
 function add(num1, num2) {
-    return num1 + num2;
+    return +num1 + +num2;
 }
 
 function subtract(num1, num2) {
@@ -99,6 +99,7 @@ function attemptToAdd(e) {
 function equals() {
     // Take the displayed string and make it into an array, using spaces to split
     valuesToOperateOn = equationAsString.split(" ");
+    console.table(valuesToOperateOn);
     // Clean up empty values from array
     valuesToOperateOn = valuesToOperateOn.filter(element => !(element === ""));
     // If the array is empty, call clear & return
