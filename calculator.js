@@ -80,13 +80,23 @@ function equals() {
     // Take the displayed string and make it into an array, using spaces to split
     valuesToOperateOn = equationAsString.split(" ");
     console.table(valuesToOperateOn);
+    // Clean up empty values from array
+    valuesToOperateOn = valuesToOperateOn.filter(element => !(element === ""));
+    console.table(valuesToOperateOn);
     // If the array is empty, call clear & return
-
-    // If there are less than 3 elements, return the one at index[0]
-
+    if (valuesToOperateOn.length === 0) {
+        clear();  // Not sure if that is necessary, test later
+        return;
+    }
+    // If there are 2 elements, return the one at index[0]
+    if (valuesToOperateOn.length === 2) {   // This is ok because there won't be a need to splice if there is just 1 element
+        valuesToOperateOn.pop();
+        console.table(valuesToOperateOn);
+    }
     // While there are 3 elements or more, operate on groups of 3 values & modify array
 
     // Update the display to show whatever is left to show
+    updateDisplay();
 }
 
 function checkIfOperator(element) { 
