@@ -22,7 +22,28 @@ function divide(num1, num2) {
 }
 
 function operate(operator, num1, num2) {
-    return(operator(num1, num2));
+    let operation;
+
+    switch (operator)
+    {
+        case "+": 
+            operation = add;
+            break;
+        case "-":
+            operation = subtract;
+            break;
+        case "x":
+            operation = multiply;
+            break;
+        case "÷":
+            operation = divide;
+            break;
+        default:
+        console.log('Error: not a valid operator');    
+        break;
+    }
+    
+    return(operation(num1, num2));
 }
 //#endregion
 
@@ -94,7 +115,13 @@ function equals() {
         console.table(valuesToOperateOn);
     }
     // While there are 3 elements or more, operate on groups of 3 values & modify array
+    while (length >= 3) {
+        const operation = valuesToOperateOn[1];
+        const num1 = valuesToOperateOn[0];
+        const num2 = valuesToOperateOn[2];
 
+        operate(operation, num1, num2);
+    }
     // Update the display to show whatever is left to show
     updateDisplay();
 }
