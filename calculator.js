@@ -21,6 +21,11 @@ function divide(num1, num2) {
     }
 }
 
+// This function rounds a number to at most two decimal places
+function round(num) {
+    return Math.round(num *100)/100;
+}
+
 function operate(operator, num1, num2) {
     let operation;
 
@@ -43,7 +48,7 @@ function operate(operator, num1, num2) {
         break;
     }
     
-    return(operation(num1, num2));
+    return round(operation(num1, num2));
 }
 //#endregion
 
@@ -144,4 +149,5 @@ function clear() {
     equationAsString = "";
     updateDisplay();
 }
+
 //#endregion
