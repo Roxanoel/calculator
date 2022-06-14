@@ -28,17 +28,22 @@ function operate(operator, num1, num2) {
 
 //#region UI interaction
 
-// Caching refs + adding listeners
-const display = document.querySelector('.results-display');
-
 // Global variables
 let displayContents = "";
+
+// Caching refs + adding listeners
+const display = document.querySelector('.results-display');
 
 const digitButtons = document.querySelectorAll('.digit');
 digitButtons.forEach(button => {
     button.addEventListener('click', updateDisplay);
     // Store number in var?
 });
+
+const operationButtons = document.querySelectorAll('.operator');
+operationButtons.forEach(button => {
+    button.addEventListener('click', updateDisplay)
+})
 
 function updateDisplay(e) {
     // Extract contents to display from event info
