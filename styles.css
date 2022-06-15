@@ -25,7 +25,7 @@ h1 {
 .calc-frame {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 540px;
     gap: 24px;
     background-color: rgb(55, 121, 101);
     border-radius: 5px;

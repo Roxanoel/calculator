@@ -58,6 +58,8 @@ function operate(operator, num1, num2) {
 let valuesToOperateOn = [];
 let equationAsString = "";
 
+const maxLength = 25;
+
 // Caching refs + adding listeners
 const display = document.querySelector('.results-display');
 
@@ -146,7 +148,7 @@ function updateDisplay() {
     // Updates display to current state of the array, turned to string
     equationAsString = valuesToOperateOn.join("");
     // Ensures the size of the string that is displayed fits the screen
-    const resized = resizeString(equationAsString, 18);
+    const resized = resizeString(equationAsString, maxLength);
 
     display.innerText = resized;
 } 
