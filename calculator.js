@@ -145,7 +145,23 @@ function checkIfOperator(element) {
 function updateDisplay() {
     // Updates display to current state of the array, turned to string
     equationAsString = valuesToOperateOn.join("");
-    display.innerText = equationAsString;
+    // Ensures the size of the string that is displayed fits the screen
+    const resized = resizeString(equationAsString, 18);
+
+    display.innerText = resized;
+} 
+
+function resizeString(string, maxLength) {
+    if (string.length <= maxLength) return string;
+
+    // If the string is longer than the max length, remove chars from the start
+    //const substring = string.substr(0, (string.length) - maxLength)
+    //return string.replace(substring, "");
+
+    // Replacing the string with an error message
+    const message = "Error: input too long"
+    clear();
+    return message;
 }
 
 function clear() {
