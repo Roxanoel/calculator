@@ -19,7 +19,7 @@ h1 {
     text-align: center;
     padding-top: 10%;
     font-family: monospace;
-    color: white;
+    color: #E0FBFC;
 }
 
 .calc-frame {
@@ -27,19 +27,19 @@ h1 {
     flex-direction: column;
     width: 540px;
     gap: 24px;
-    background-color: rgb(55, 121, 101);
+    background-color: #3D5A80;
     border-radius: 5px;
-    border: outset 5px;
+    border: outset 5px #6b8ab3;
 }
 
 .equals {
-    background-color: greenyellow;
+    background-color: #EE6C4D;
     height: 48px;
     width: 108px;
 }
 
 .clear {
-    background-color: cornsilk;
+    background-color: #E0FBFC;
     height: 48px;
     width: 108px;
 }
@@ -47,10 +47,10 @@ h1 {
 .results-display {
     width: auto;
     height: 36px;
-    background-color: rgb(0, 0, 0);
+    background-color: #293241;
     margin-left: 12%;
     margin-right: 12%;
-    border: solid 1px rgb(22, 49, 41);
+    border: solid 1px #161b24;
     border-radius: 5px;
     text-align: left;
     padding-left: 5%;
@@ -59,7 +59,7 @@ h1 {
     font-size: 24px;
     font-weight: 600;
     font-family: monospace;
-    color: white;
+    color: #E0FBFC;
 
 }
 
@@ -78,7 +78,7 @@ h1 {
 }
 
 .digit {
-    background-color: lightsalmon;
+    background-color: #98C1D9;
 }
 
 .digit :last-child {
@@ -101,7 +101,7 @@ h1 {
 }
 
 .operator {
-    background-color: lightskyblue;
+    background-color: #E7B4A5;
 }
 
 .clear-and-equals {
