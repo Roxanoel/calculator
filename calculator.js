@@ -159,7 +159,9 @@ function resizeString(string, maxLength) {
     //return string.replace(substring, "");
 
     // Replacing the string with an error message
-    return "Error: input too long"
+    const message = "Error: input too long"
+    clear();
+    return message;
 }
 
 function clear() {
