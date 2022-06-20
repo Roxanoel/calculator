@@ -81,8 +81,8 @@ h1 {
     background-color: #98C1D9;
 }
 
-.digit :last-child {
-    grid-column: -4 / -1;
+.buttons-left :last-child {
+    grid-column: 1 / 4;
 }
 
 .buttons-right {
@@ -109,3 +109,4 @@ h1 {
     flex-direction: column;
     gap: 8px;
 }
+
